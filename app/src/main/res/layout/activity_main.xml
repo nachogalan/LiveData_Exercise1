@@ -21,7 +21,8 @@
             android:id="@+id/txtTrabajo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/simpleSwitch"/>
+            android:layout_below="@id/simpleSwitch"
+            android:text="Trabajas en casa?"/>
 
     </LinearLayout>
 
@@ -42,7 +43,8 @@
             android:id="@+id/txtApruebo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/simpleSwitch1"/>
+            android:layout_below="@id/simpleSwitch1"
+            android:text="Vas a aprobar?"/>
 
     </LinearLayout>
 
@@ -63,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Tu edad es: "
+        android:text="Tienes    años "
         android:padding="40dp"
 
         />

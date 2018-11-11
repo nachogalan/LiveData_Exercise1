@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -19,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
     TextView txtTrabajo, txtApruebo, txtEdad;
     EditText etEdad;
 
-    private final MutableLiveData<Boolean> MutableLiveDataFirst = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> mMutableLiveDataFirst = new MutableLiveData<>();
     private final MutableLiveData<Boolean> MutableLiveDataSecond = new MutableLiveData<>();
-    private final MutableLiveData<String> MutableLiveDataThird = new MutableLiveData<>();
+    private final MutableLiveData<String> mMutableLiveDataThird = new MutableLiveData<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-      MutableLiveDataFirst.observe(this, new Observer<Boolean>() {
+      mMutableLiveDataFirst.observe(this, new Observer<Boolean>() {
                     @Override
             public void onChanged(@Nullable Boolean aBoolean) {
                         txtTrabajo.setText("Trabajas en casa? ");
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MutableLiveDataThird.observe(this, new Observer<String>() {
+        mMutableLiveDataThird.observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable final String s) {
                 txtEdad.setText("Tienes " + s +" años.");
@@ -83,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 // do something, the isChecked will be
                 // true if the switch is in the On position
             if (isChecked == true){
-                MutableLiveDataFirst.postValue(true);
+                mMutableLiveDataFirst.postValue(true);
             }else {
-                MutableLiveDataFirst.postValue(false);
+                mMutableLiveDataFirst.postValue(false);
             }
             }
         });
@@ -106,18 +105,18 @@ public class MainActivity extends AppCompatActivity {
         etEdad.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                MutableLiveDataThird.postValue(etEdad.getText().toString());
+                mMutableLiveDataThird.postValue(etEdad.getText().toString());
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                MutableLiveDataThird.postValue(etEdad.getText().toString());
+                mMutableLiveDataThird.postValue(etEdad.getText().toString());
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                MutableLiveDataThird.postValue(etEdad.getText().toString());
+                mMutableLiveDataThird.postValue(etEdad.getText().toString());
             }
         });
 
